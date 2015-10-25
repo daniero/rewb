@@ -37,6 +37,11 @@ describe String do
   end
 
   describe :rsub do
+    it "works with both strings and regulars expressions" do
+      expect("Hello there".rsub("e", "a")).to eql "Hallo thara"
+      expect("Hello there".rsub(/e/, "a")).to eql "Hallo thara"
+    end
+
     it "applies substitution repeatedly" do
       expect('abcXXd'.rsub(/.X/, '')).to eql 'ad'
     end
@@ -55,6 +60,14 @@ describe String do
       result = 'abXcXd'.rsub(/(.)(.)X/){ |a,b,c| c+b }
 
       expect(result).to eql 'bcad'
+    end
+
+    it "has no side effects" do
+      s = "hi there"
+
+      s.rsub(?e, ?a)
+
+      expect(s).to eql "hi there"
     end
   end
 

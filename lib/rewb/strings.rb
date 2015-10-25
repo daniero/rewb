@@ -20,12 +20,12 @@ class String
   alias :/ :split
 
   def rsub(match, replacement=nil)
-    val = self
+    val = dup
 
     if block_given?
-      val.sub!(match) { yield *$~ } while match =~ val
+      val.sub!(match) { yield *$~ } while val[match]
     else
-      val.sub!(match, replacement) while val =~ match
+      val.sub!(match, replacement) while val[match]
     end
 
     return val
