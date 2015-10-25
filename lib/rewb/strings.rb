@@ -18,4 +18,17 @@ class String
   prepend StringRefinement
 
   alias :/ :split
+
+  def rsub(match, replacement=nil)
+    val = self
+
+    if block_given?
+      val.sub!(match) { yield *$~ } while match =~ val
+    else
+      val.sub!(match, replacement) while val =~ match
+    end
+
+    return val
+  end
+
 end
