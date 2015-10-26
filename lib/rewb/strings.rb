@@ -31,4 +31,18 @@ class String
     return val
   end
 
+  def transpose
+    if block_given?
+      tmp = transpose
+      yield tmp
+      return tmp.transpose
+    end
+
+    chomped_lines = self.lines.map(&:chomp)
+    max_length = chomped_lines.map(&:size).max
+
+    justified_lines = chomped_lines.map { |line| line.ljust(max_length) }
+    justified_lines.map(&:chars).transpose.map(&:join).join(?\n)
+  end
+
 end

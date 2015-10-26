@@ -71,4 +71,47 @@ describe String do
     end
   end
 
+  describe :transpose do
+    it "returns a string whose lines are this string's columns" do
+      expect("abc\ndef\nghi".transpose).to eql "adg\nbeh\ncfi"
+    end
+
+    it "adds spaces to lines that are shorter than the longest line" do
+      expect("abc\nd\nghi".transpose).to eql "adg\nb h\nc i"
+    end
+
+    it "does not alter the original string" do
+      s = "abc\ndef\nghi"
+
+      s.transpose
+
+      expect(s).to eql "abc\ndef\nghi"
+    end
+
+    it "turns back to the original string when called twice (unless spaces had to be added)" do
+      s = "abc\ndef\nghi"
+
+      expect(s.transpose.transpose).to eql s
+    end
+
+    it "yields a transposed string when given a block, and returns itself un-transposed" do
+      s = "abc\ndef\nghi"
+      a = nil
+
+      return_value = s.transpose { |t| a = t }
+
+      expect(a).to eql "adg\nbeh\ncfi"
+      expect(return_value).to eql "abc\ndef\nghi"
+    end
+
+    it "carries back the changes done to the yielded string" do
+      s = "abc\ndef\nghi"
+
+      return_value = s.transpose { |t| t.gsub!("beh","XYZ") }
+
+      expect(return_value).to eql "aXc\ndYf\ngZi"
+      expect(s).to eql "abc\ndef\nghi"
+    end
+  end
+
 end
