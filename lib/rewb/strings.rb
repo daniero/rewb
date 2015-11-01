@@ -45,4 +45,10 @@ class String
     justified_lines.map(&:chars).transpose.map(&:join).join(?\n)
   end
 
+  def char_count
+    count = Hash.new(0)
+    chars { |c| count[c]+= 1}
+    count
+  end
+
 end
