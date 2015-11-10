@@ -1,6 +1,11 @@
 require 'rewb'
 
 describe String do
+  it "is Enumerable" do
+    expect("abcdef".find { |c| c > "d" }).to eq "e"
+    expect("abcdef".reduce { |s,c| s.swapcase + c }).to eq "AbCdEf"
+  end
+
   describe :split do
     it "defaults to splitting on $; or spaces" do
       expect("witness me".split).to eql %w(witness me)

@@ -15,7 +15,10 @@ end
 
 
 class String
+  include Enumerable
   prepend StringRefinement
+
+  alias :each :each_char
 
   alias :/ :split
 
