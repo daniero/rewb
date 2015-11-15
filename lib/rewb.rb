@@ -1,5 +1,6 @@
 require "rewb/version"
 require "rewb/kernel"
+require "rewb/io"
 require "rewb/objects"
 require "rewb/integers"
 require "rewb/strings"
