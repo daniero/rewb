@@ -41,6 +41,20 @@ describe String do
     end
   end
 
+  describe "Unary +" do
+    it "returns a number" do
+      int = "123"
+      float = "3.14"
+      int_with_spaces = " 123\n"
+      float_with_spaces = " 3.14\n"
+
+      expect(+int).to eql 123
+      expect(+float).to eql 3.14
+      expect(+int_with_spaces).to eql 123
+      expect(+float_with_spaces).to eql 3.14
+    end
+  end
+
   describe :rsub do
     it "works with both strings and regulars expressions" do
       expect("Hello there".rsub("e", "a")).to eql "Hallo thara"

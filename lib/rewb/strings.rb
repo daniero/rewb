@@ -22,6 +22,10 @@ class String
 
   alias :/ :split
 
+  def +@
+    self["."] ? to_f : to_i
+  end
+
   def rsub(match, replacement=nil)
     val = dup
 
