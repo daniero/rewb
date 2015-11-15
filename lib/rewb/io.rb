@@ -13,3 +13,7 @@ class Object
     end
   end
 end
+
+def geti
+  gets.to_i
+end

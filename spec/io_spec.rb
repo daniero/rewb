@@ -10,6 +10,11 @@ ensure
   $stdout = tmp
 end
 
+def provide_input input
+  allow_any_instance_of(Object).to receive(:gets).and_return(input)
+end
+
+
 describe Object do
   describe :o do
     it "prints the object if it's truthy, and returns the object" do
@@ -50,5 +55,14 @@ describe Enumerable do
                             "3\n"\
                             "4\n"
     end
+  end
+end
+
+
+describe :geti do
+  it "converts to given input to an integer" do
+    provide_input "123\n"
+
+    expect(geti).to eql 123
   end
 end
