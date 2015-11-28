@@ -14,6 +14,6 @@ class Object
   end
 end
 
-def geti
-  gets.to_i
+def geti(radix=10)
+  gets.to_i(radix)
 end

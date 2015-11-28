@@ -65,4 +65,10 @@ describe :geti do
 
     expect(geti).to eql 123
   end
+
+  it "uses the optional parameter as radix" do
+    provide_input "123\n"
+
+    expect(geti(4)).to eq 27
+  end
 end
