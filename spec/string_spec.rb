@@ -2,6 +2,9 @@ require 'rewb'
 
 describe String do
   it "is Enumerable" do
+    a,b = *"ab"
+    expect([a, b]).to eq ["a", "b"]
+
     expect("abcdef".find { |c| c > "d" }).to eq "e"
     expect("abcdef".reduce { |s,c| s.swapcase + c }).to eq "AbCdEf"
   end
