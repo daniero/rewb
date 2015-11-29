@@ -15,6 +15,7 @@ describe Integer do
 
   describe :[] do
     it "works as before with a single integer" do
+      expect(0b0010[0]).to eql 0
       expect(0b0010[1]).to eql 1
       expect(0b0010[2]).to eql 0
     end
