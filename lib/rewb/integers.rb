@@ -1,8 +1,13 @@
+module Rewb
+  module Integer
+    def each
+      times { |i| yield i }
+    end
+  end
+end
+
 class Integer
   include Enumerable
-
-  def each
-    times { |i| yield i }
-  end
+  include Rewb::Integer
 end
 
