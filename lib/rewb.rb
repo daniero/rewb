@@ -1,3 +1,5 @@
+require "prime"
+
 require "rewb/version"
 require "rewb/kernel"
 require "rewb/io"
