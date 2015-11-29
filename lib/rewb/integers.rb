@@ -3,11 +3,34 @@ module Rewb
     def each
       times { |i| yield i }
     end
+
+    def [](index, *rest)
+      case index
+      when Range
+        range = index.last < 0 ? (index.first...bit_length) : index
+        range.each_with_index.reduce(0) { |s, (i,j)| s|(super(i) << j) }
+      else
+        if rest.size > 0
+          [index, *rest].reduce(0) { |s,i| s|super(i) << i }
+        else
+          super(index)
+        end
+      end
+    end
+
   end
 end
 
 class Integer
   include Enumerable
-  include Rewb::Integer
 end
+
+class Fixnum
+  prepend Rewb::Integer
+end
+
+class Bignum
+  prepend Rewb::Integer
+end
+
 
