@@ -13,13 +13,13 @@ module Rewb
         tap { |x| puts x if x }
       end
     end
+
+    private
+    def geti(radix=10)
+      gets.to_i(radix)
+    end
+
   end
 end
 
-class Object
-  include Rewb::IO
-end
-
-def geti(radix=10)
-  gets.to_i(radix)
-end
+Object.include Rewb::IO
