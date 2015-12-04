@@ -1,5 +1,20 @@
 module Rewb
   module Array
+
+    module Refinement
+      def *(x)
+        case x
+        when Array
+          self.product(x)
+        else
+          super(x)
+        end
+      end
+    end
+
+    def **(n)
+      self.product(*[self]*(n-1))
+    end
     
     def ~@
       reverse
@@ -22,4 +37,5 @@ end
 
 class Array
   include Rewb::Array
+  prepend Rewb::Array::Refinement
 end

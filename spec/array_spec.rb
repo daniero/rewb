@@ -8,6 +8,29 @@ describe Array do
     end
   end
 
+  describe :* do
+    it "repeats the array when given an integer" do
+      expect([1, 2, 3] * 2).to eql [1, 2, 3, 1, 2, 3]
+    end
+
+    it "returns the product when given another array" do
+      expect([1, 2, 3] * ["a", "b", "c"]).to eql [[1, "a"], [1, "b"], [1, "c"],
+                                                  [2, "a"], [2, "b"], [2, "c"],
+                                                  [3, "a"], [3, "b"], [3, "c"]]
+    end
+  end
+
+  describe :** do
+    it "returns the product of the array repeated n times" do
+      expect([1, 2, 3]**2).to eql [[1, 1], [1, 2], [1, 3],
+                                   [2, 1], [2, 2], [2, 3],
+                                   [3, 1], [3, 2], [3, 3]]
+    end
+  end
+
+  describe :** do
+  end
+
   describe :deep_map do
     let(:tree) { [[[1, 2], 3], [4, [5]], 6] }
 
