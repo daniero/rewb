@@ -1,5 +1,6 @@
 module Rewb
   module Kernel
+    private
     def loop
       return to_enum(:loop).lazy unless block_given?
       i = 0
