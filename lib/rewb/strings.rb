@@ -15,7 +15,11 @@ module Rewb
     end
 
     def +@
-      self["."] ? to_f : to_i
+      self['.'] ? to_f : to_i
+    end
+
+    def coerce n
+      [n, +self]
     end
 
     def rsub(match, replacement=nil)
