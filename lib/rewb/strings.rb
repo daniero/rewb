@@ -22,6 +22,10 @@ module Rewb
       [n, +self]
     end
 
+    def ~@
+      reverse
+    end
+
     def rsub(match, replacement=nil)
       val = dup
 

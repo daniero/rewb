@@ -66,6 +66,12 @@ describe String do
     end
   end
 
+  describe "unary ~" do
+    it "reverses the string" do
+      expect(~"hello").to eq "olleh"
+    end
+  end
+
   describe :rsub do
     it "works with both strings and regulars expressions" do
       expect("Hello there".rsub("e", "a")).to eql "Hallo thara"
