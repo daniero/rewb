@@ -1,5 +1,12 @@
 module Rewb
   module Enumerable
+    def +(other)
+      Enumerator.new do |y|
+        each { |e| y << e }
+        other.each { |e| y << e }
+      end
+    end
+
     def %(i)
       select.with_index { |e,j| j%i == 0 }
     end

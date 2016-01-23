@@ -1,6 +1,14 @@
 require 'rewb'
 
 describe Enumerable do
+  describe :+ do
+    it "combines this Enumerable with the other" do
+      x = (1..3) + (7..9)
+
+      expect(x.to_a).to eql [1, 2, 3, 7, 8, 9]
+    end
+  end
+
   describe :* do
     it "repeats the Enumerable n times" do
       x = (1..3) * 3
