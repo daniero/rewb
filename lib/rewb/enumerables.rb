@@ -22,6 +22,13 @@ module Rewb
 
       count
     end
+
+    def bounce(n=1)
+      return reverse.bounce(-n) if n < 0
+      return self + reverse_each.drop(1) if n == 1
+
+      bounce + bounce.drop(1) * (n - 1)
+    end
   end
 end
 
