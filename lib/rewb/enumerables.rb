@@ -22,4 +22,5 @@ classes = Module.constants.map { |m| Module.const_get(m) }.grep(Class)
 enumerables = classes.select { |c| c.included_modules.include?(Enumerable) }
 
 enumerables.each { |e| e.include Rewb::Enumerable }
+enumerables.each { |e| e.send(:alias_method, :*, :cycle) unless e.method_defined?(:*) }
 

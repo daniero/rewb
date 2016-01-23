@@ -1,6 +1,14 @@
 require 'rewb'
 
 describe Enumerable do
+  describe :* do
+    it "repeats the Enumerable n times" do
+      x = (1..3) * 3
+
+      expect(x.to_a).to eql [1, 2, 3, 1, 2, 3, 1, 2, 3]
+    end
+  end
+
   describe :% do
     it "extracts every nth element" do
       a = (0..10)
