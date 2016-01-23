@@ -9,6 +9,14 @@ describe String do
     expect("abcdef".reduce { |s,c| s.swapcase + c }).to eq "AbCdEf"
   end
 
+  describe :coerce do
+    it "works" do
+      expect(123 + "444").to eql 567
+      expect(123 - "24").to eql 99
+      expect(3 + "0.14").to eql 3.14
+    end
+  end
+
   describe :split do
     it "defaults to splitting on $; or spaces" do
       expect("witness me".split).to eql %w(witness me)
@@ -44,7 +52,7 @@ describe String do
     end
   end
 
-  describe "Unary +" do
+  describe "unary +" do
     it "returns a number" do
       int = "123"
       float = "3.14"
@@ -55,6 +63,12 @@ describe String do
       expect(+float).to eql 3.14
       expect(+int_with_spaces).to eql 123
       expect(+float_with_spaces).to eql 3.14
+    end
+  end
+
+  describe "unary ~" do
+    it "reverses the string" do
+      expect(~"hello").to eq "olleh"
     end
   end
 
