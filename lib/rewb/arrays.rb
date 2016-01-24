@@ -6,6 +6,8 @@ module Rewb
         case x
         when Array
           self.product(x)
+        when Range
+          self.product(x.to_a)
         else
           super(x)
         end
