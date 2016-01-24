@@ -10,10 +10,18 @@ describe Enumerable do
   end
 
   describe :* do
-    it "repeats the Enumerable n times" do
+    it "repeats the Enumerable n times when given an integer" do
       x = (1..3) * 3
 
       expect(x.to_a).to eql [1, 2, 3, 1, 2, 3, 1, 2, 3]
+    end
+
+    it "returns the product when given another enumerable" do
+      x = (1..3) * (?a..?c)
+
+      expect(x).to eql [[1, "a"], [1, "b"], [1, "c"],
+                        [2, "a"], [2, "b"], [2, "c"],
+                        [3, "a"], [3, "b"], [3, "c"]]
     end
   end
 
