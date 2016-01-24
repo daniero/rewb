@@ -18,6 +18,10 @@ module Rewb
       end
     end
 
+    def bounce(n=1)
+      return (-self).bounce(-n).map { |i| -i } if self < 0
+      return *(0...self).bounce(n)
+    end
   end
 end
 

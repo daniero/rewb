@@ -31,4 +31,22 @@ describe Integer do
     end
   end
 
+  describe :bounce do
+    it "returns an array of the integers from zero up to self and down to zero again" do
+      expect(5.bounce).to eql [0, 1, 2, 3, 4, 3, 2, 1, 0]
+    end
+
+    it "bounces n times given the parameter n" do
+      expect(2.bounce(3)).to eql [0, 1, 0, 1, 0, 1, 0]
+    end
+
+    it "starts the opposite way when given a negative parameter" do
+      expect(3.bounce(-2)).to eql [2, 1, 0, 1, 2, 1, 0, 1, 2]
+      expect(4.bounce(-1)).to eql [3, 2, 1, 0, 1, 2, 3]
+    end
+
+    it "bounces up towards zero if the integer is negative" do
+      expect(-3.bounce).to eql [-2, -1, 0, -1, -2]
+    end
+  end
 end
