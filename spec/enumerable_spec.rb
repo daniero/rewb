@@ -25,6 +25,17 @@ describe Enumerable do
     end
   end
 
+  describe :/ do
+    it "splits the Enumerable in n parts" do
+      x = [1, 2, 3, 4, 5, 6, 7, 8]
+
+      a,b = x / 2
+
+      expect(a).to eql [1, 2, 3, 4]
+      expect(b).to eql [5, 6, 7, 8]
+    end
+  end
+
   describe :% do
     it "extracts every nth element" do
       a = (0..10)

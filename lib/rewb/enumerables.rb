@@ -18,6 +18,10 @@ module Rewb
       end
     end
 
+    def /(n)
+      each_slice(size/n).to_a
+    end
+
     def %(i)
       select.with_index { |e,j| j%i == 0 }
     end
