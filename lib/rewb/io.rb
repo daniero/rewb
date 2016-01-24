@@ -5,12 +5,12 @@ module Rewb
 
       case self
       when String, Integer
-        tap { |x| puts x if x }
+        tap { |x| puts x }
       when Enumerable
         each { |e| e.o }
         self
       else
-        tap { |x| puts x if x }
+        tap { |x| puts x }
       end
     end
 

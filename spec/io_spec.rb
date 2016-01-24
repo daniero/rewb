@@ -10,7 +10,7 @@ ensure
   $stdout = tmp
 end
 
-def provide_input input
+def provide_input(input)
   allow_any_instance_of(Object).to receive(:gets).and_return(input)
 end
 
