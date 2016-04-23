@@ -154,7 +154,8 @@ describe String do
     it "returns a map with the count for each character" do
       s = "abbcccdddddddeæøå"
 
-      expect(s.char_count).to eql({"a"=>1, "b"=>2, "c"=>3, "d"=>7, "e"=>1, "æ"=>1, "ø"=>1, "å"=>1})
+      expect(s.char_count).to eql({"a"=>1, "b"=>2, "c"=>3, "d"=>7, "e"=>1,
+                                   "æ"=>1, "ø"=>1, "å"=>1})
     end
   end
 
