@@ -158,4 +158,11 @@ describe String do
     end
   end
 
+  describe :bin do
+    it "evaluates the string as a binary number and converts it to an integer" do
+      expect("0110".bin).to eql 6
+      expect("1011".bin).to eql 11
+    end
+  end
+
 end

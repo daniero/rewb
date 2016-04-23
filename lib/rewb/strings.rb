@@ -58,6 +58,10 @@ module Rewb
       count
     end
 
+    def bin
+      self.to_i(2)
+    end
+
   end
 end
 
