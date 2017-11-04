@@ -8,6 +8,27 @@ describe Array do
     end
   end
 
+  describe "#reverse" do
+    it "reverses the array" do
+      expect([1, 2, 3].reverse).to eql [3, 2, 1]
+    end
+
+    it "reverses the n first elements given a positive parameter n" do
+      expect([1, 2, 3, 4, 5, 6].reverse(0)).to eql [1, 2, 3, 4, 5, 6]
+      expect([1, 2, 3, 4, 5, 6].reverse(1)).to eql [1, 2, 3, 4, 5, 6]
+      expect([1, 2, 3, 4, 5, 6].reverse(2)).to eql [2, 1, 3, 4, 5, 6]
+      expect([1, 2, 3, 4, 5, 6].reverse(3)).to eql [3, 2, 1, 4, 5, 6]
+      expect([1, 2, 3, 4, 5, 6].reverse(6)).to eql [6, 5, 4, 3, 2, 1]
+    end
+
+    it "reverses the -n last elements given a negative parameter n" do
+      expect([1, 2, 3, 4, 5, 6].reverse(-1)).to eql [1, 2, 3, 4, 5, 6]
+      expect([1, 2, 3, 4, 5, 6].reverse(-2)).to eql [1, 2, 3, 4, 6, 5]
+      expect([1, 2, 3, 4, 5, 6].reverse(-3)).to eql [1, 2, 3, 6, 5, 4]
+      expect([1, 2, 3, 4, 5, 6].reverse(-6)).to eql [6, 5, 4, 3, 2, 1]
+    end
+  end
+
   describe :* do
     it "repeats the array when given an integer" do
       expect([1, 2, 3] * 2).to eql [1, 2, 3, 1, 2, 3]

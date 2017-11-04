@@ -12,6 +12,15 @@ module Rewb
           super(x)
         end
       end
+
+      def reverse(n=nil)
+        return super() unless n
+        return super() if n.abs == size
+        return self if [0, 1].include? n.abs
+        return self[0, n].reverse + self[n...size] if n >= 0
+        return self[0...size+n] + self[n, -n].reverse
+      end
+
     end
 
     def **(n)
