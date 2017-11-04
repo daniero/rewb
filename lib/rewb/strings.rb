@@ -15,11 +15,15 @@ module Rewb
     end
 
     def +@
-      self['.'] ? to_f : to_i
+      to_n
     end
 
     def coerce n
-      [n, +self]
+      [n, self.to_n]
+    end
+
+    def to_n
+      self['.'] ? to_f : to_i
     end
 
     def ~@
