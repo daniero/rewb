@@ -7,7 +7,6 @@ require "rewb/io"
 require "rewb/objects"
 require "rewb/integers"
 require "rewb/strings"
-require "rewb/ranges"
 require "rewb/arrays"
 require "rewb/enumerables"
 
