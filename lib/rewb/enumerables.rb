@@ -47,8 +47,11 @@ module Rewb
   end
 end
 
-classes = Module.constants.map { |m| Module.const_get(m) }.grep(Class)
-enumerables = classes.select { |c| c.included_modules.include?(Enumerable) }
+# Exclude deprecated modules and constants
+constants = Module.constants - [:NIL, :TRUE, :FALSE, :Fixnum, :Bignum]
 
+# Include Rewb::Enumerable in each existing Enumerable
+classes = constants.map { |m| Module.const_get(m) }.grep(Class)
+enumerables = classes.select { |c| c.included_modules.include?(Enumerable) }
 enumerables.each { |e| e.include Rewb::Enumerable }
 
