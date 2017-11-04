@@ -26,15 +26,7 @@ module Rewb
 end
 
 class Integer
+  prepend Rewb::Integer
   include Enumerable
 end
-
-class Fixnum
-  prepend Rewb::Integer
-end
-
-class Bignum
-  prepend Rewb::Integer
-end
-
 
