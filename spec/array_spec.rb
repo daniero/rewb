@@ -37,6 +37,7 @@ describe Array do
         expect([1, 2, 3, 4, 5, 6].reverse(0, 1)).to eql [1, 2, 3, 4, 5, 6]
         expect([1, 2, 3, 4, 5, 6].reverse(0, 6)).to eql [6, 5, 4, 3, 2, 1]
         expect([1, 2, 3, 4, 5, 6].reverse(1, 4)).to eql [1, 5, 4, 3, 2, 6]
+        expect([1, 2, 3, 4, 5, 6].reverse(2, 2)).to eql [1, 2, 4, 3, 5, 6]
       end
 
       it "reverses items from index n up to -m from the end given a negative m" do

@@ -15,8 +15,8 @@ module Rewb
 
       def reverse(n=nil, m=nil)
         if m && m >= 0
-          return self.reverse(m) if n == 0
-          return self[0...n] + self[n, m].reverse + self[m+1..-1]
+          y = n + m - 1
+          return self[0...n] + self[n..y].reverse + self[y+1..-1]
         end
 
         if m
