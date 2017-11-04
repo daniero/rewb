@@ -52,7 +52,8 @@ describe String do
     end
   end
 
-  describe "unary +" do
+  # An actual unary + was added in to strings in Ruby 2.4
+  xdescribe "unary +" do
     it "returns a number" do
       int = "123"
       float = "3.14"
